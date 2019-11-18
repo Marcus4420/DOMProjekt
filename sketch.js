@@ -43,7 +43,7 @@ function draw() {
     text('↑ Newton: ' + O, SkubOp.x * 2, 150);
     text('↓ Newton: ' + N, SkubNed.x * 2, 200);
     if (block.x < 800-block.width) {
-        block.x += H/5;
+        block.x += H;
     }
     if (block.x > 0) {
         block.x -= V;
