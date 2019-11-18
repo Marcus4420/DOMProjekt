@@ -5,6 +5,13 @@ let V;
 let H;
 let O;
 let N;
+let block = {
+    width: 50,
+    height: 50,
+    x: 350,
+    y: 350,
+}
+
 
 function preload() {
     bg = loadImage("baggrund.jpg");
@@ -31,26 +38,28 @@ function draw() {
     let O = SkubOp.value();
     let N = SkubNed.value();
     fill(255);
-    text('→ Newton: ' + V, SkubV.x * 2, 50);
-    text('← Newton: ' + H, SkubHøjre.x * 2, 100);
+    text('← Newton: ' + V, SkubV.x * 2, 50);
+    text('→ Newton: ' + H, SkubHøjre.x * 2, 100);
     text('↑ Newton: ' + O, SkubOp.x * 2, 150);
     text('↓ Newton: ' + N, SkubNed.x * 2, 200);
+    if (block.x < 800-block.width) {
+        block.x += H/5;
+    }
+    if (block.x > 0) {
+        block.x -= V;
+    }
+    if (block.y < 800-block.height) {
+        block.y += N;
+    }
+    if (block.y > 0) {
+        block.y -= O;
+    }
 }
 
 
 function spaceblock() {
-    block = {
-        width: 100,
-        height: 100,
-        x: 350,
-        y: 350,
-    }
-
-    image(BLOCK, block.x, block.x, block.width,block.height);
-
-    //CONTROLS//
-
-    block.x = block.x + N;
+    image(BLOCK, block.x, block.y, block.width,block.height);
 }
+
 
 
