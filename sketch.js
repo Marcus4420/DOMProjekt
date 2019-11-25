@@ -30,7 +30,7 @@ function setup() {
 }
 
 function draw() {
-    createCanvas(800,800);
+    createCanvas(800,730);
     background(bg);
     spaceblock();
     let V = SkubV.value();
