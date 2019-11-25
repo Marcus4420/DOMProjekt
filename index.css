@@ -70,10 +70,12 @@ p{
 }
 
 .navbar {
-   margin-right: auto;
    margin-top: auto;
-   margin-left: 55%;
+   top: 8px;
+   right: 16px;
+   left: 54%;
    z-index: 2;
+   position: absolute;
 }
 
 ul {
@@ -88,7 +90,6 @@ ul {
    margin-right: 15px;
    border-style: hidden;
    border-radius: 20px;
-   float: right;
  }
  
  li {
