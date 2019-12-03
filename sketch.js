@@ -1,10 +1,17 @@
+//Billeder
 let bg;
 let BLOCK;
-let SkubV, SkubOp, SkubNed, SkubHøjre;
+
+//Sliders
+let SkubVenstre, SkubOp, SkubNed, SkubHøjre;
+
+//Værdier
 let V;
 let H;
 let O;
 let N;
+
+//Block specs
 let block = {
     width: 50,
     height: 50,
@@ -14,13 +21,15 @@ let block = {
 
 
 function preload() {
+    //Billeder preload
     bg = loadImage("baggrund.jpg");
     BLOCK = loadImage("block.png");
 }
 
 function setup() {
-    SkubV = createSlider(0, 10, 0);
-    SkubV.position(20, 50);
+    //Skabelse af sliders
+    SkubVenstre = createSlider(0, 10, 0);
+    SkubVenstre.position(20, 50);
     SkubHøjre = createSlider(0, 10, 0);
     SkubHøjre.position(20, 100);
     SkubOp = createSlider(0, 10, 0);
@@ -31,17 +40,24 @@ function setup() {
 
 function draw() {
     createCanvas(800,730);
+    //Baggrund til billed
     background(bg);
+    //Block
     spaceblock();
-    let V = SkubV.value();
+    //Values til variable
+    let V = SkubVenstre.value();
     let H = SkubHøjre.value();
     let O = SkubOp.value();
     let N = SkubNed.value();
+    //Tekst farve
     fill(255);
-    text('← Newton: ' + V, SkubV.x * 2, 50);
+
+    //Variable display
+    text('← Newton: ' + V, SkubVenstre.x * 2, 50);
     text('→ Newton: ' + H, SkubHøjre.x * 2, 100);
     text('↑ Newton: ' + O, SkubOp.x * 2, 150);
     text('↓ Newton: ' + N, SkubNed.x * 2, 200);
+    //Konstant bevægelse check
     if (block.x < 800-block.width) {
         block.x += H;
     }
@@ -58,6 +74,7 @@ function draw() {
 
 
 function spaceblock() {
+    //Tegn block
     image(BLOCK, block.x, block.y, block.width,block.height);
 }
 
